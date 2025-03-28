@@ -396,8 +396,8 @@ function initializeTimeline() {
 
     const milestones = [
         { milestone: "Assessment Start", date: document.getElementById("date").value || "N/A" },
-        { milestone: "Mitigation Measures Planned", date: "TBD" },
-        { milestone: "Project Completion Estimated", date: "TBD" },
+        { milestone: "Mitigation Measures Planned", date: document.getElementById("mitigation-date").value || "TBD" },
+        { milestone: "Project Completion Estimated", date: document.getElementById("completion-date").value || "TBD" },
     ];
 
     milestones.forEach(({ milestone, date }) => {
@@ -410,6 +410,11 @@ function initializeTimeline() {
         timelineContainer.appendChild(milestoneElement);
     });
 }
+
+// Reinitialize Timeline on Page Load
+document.addEventListener("DOMContentLoaded", () => {
+    initializeTimeline();
+});
 
 // Initialize Timeline on Page Load
 document.addEventListener("DOMContentLoaded", () => {
